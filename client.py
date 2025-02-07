@@ -247,7 +247,7 @@ def start_client():
     # Get Server details to connect with it
     try:
         ipv4_regex = r"^((25[0-5]|2[0-4]\d|1\d\d|\d\d?)\.){3}(25[0-5]|2[0-4]\d|1\d\d|\d\d?)$"
-        server_ip = input("Enter receiver ip address: ")
+        server_ip = input("Enter receiver ip address: ").strip()
         if not re.search(ipv4_regex, server_ip):
             raise ValueError("Invalid IPV4 Address entered")
         server_port = int(input("Enter port number: "))
@@ -273,7 +273,7 @@ def start_client():
         while t and t.is_alive():
             try:
                 # msg = input(f"{n.id}: ")
-                msg = input("Enter File Path: ")
+                msg = input("Enter File Path: ").strip()
                 if msg:
                     response = n.send_data(data=msg, data_type='File')
                 else:
