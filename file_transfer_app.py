@@ -5,7 +5,7 @@ while True:
 
     action = input("What do you want to do (send/receive)? ")
 
-    if action.strip() == "receive":
+    if action.strip().casefold() == "receive".casefold():
         print()
         start_server()
         break

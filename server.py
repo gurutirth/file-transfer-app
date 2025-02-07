@@ -51,7 +51,7 @@ class Server():
                     # Check for IPv4 addresses that are not loopback
                     if addr.family == socket.AF_INET:
                         ip = ipaddress.ip_address(addr.address)
-                        if ip.is_private and not ip.is_loopback:
+                        if ip.is_private and not ip.is_loopback and not ip.is_link_local:
                             return addr.address
         except Exception as e:
             print("Private IP address fetching Error: ", traceback.format_exc())
